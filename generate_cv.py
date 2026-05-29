@@ -253,6 +253,28 @@ def generate_pdf():
     for cert in certs:
         story.append(Paragraph(f"✓ {cert}", style_bullet))
         
+    # 6. References
+    story.append(Paragraph("PROFESSIONAL REFERENCES", style_section_heading))
+    ref_data = [
+        [
+            Paragraph("<b>Mr. Samuel Kamau</b><br/>HR Manager – Chuka Nursing Home<br/>Phone: 0703 914 964<br/>Email: ngangasamoo@gmail.com", style_body),
+            Paragraph("<b>Mrs. Rose Gacheri</b><br/>IT Lecturer – Chuka Nursing Home<br/>Phone: 0740 415 643<br/>Email: rosegaceri57@gmail.com", style_body)
+        ],
+        [
+            Paragraph("<b>Mr. Martin Koome</b><br/>Lead Receptionist – Optimal Family Limited<br/>Phone: 0798 864 542<br/>Email: martinkoome26@gmail.com", style_body),
+            Paragraph("<b>Mr. Lumumba W. Victor</b><br/>Instructor – CDAM Lab, Chuka University<br/>Phone: 0706 038 599<br/>Email: lumumbavictor172@gmail.com", style_body)
+        ]
+    ]
+    ref_table = Table(ref_data, colWidths=[252, 252])
+    ref_table.setStyle(TableStyle([
+        ('VALIGN', (0,0), (-1,-1), 'TOP'),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 8),
+        ('TOPPADDING', (0,0), (-1,-1), 4),
+        ('LEFTPADDING', (0,0), (-1,-1), 0),
+        ('RIGHTPADDING', (0,0), (-1,-1), 10),
+    ]))
+    story.append(ref_table)
+        
     doc.build(story)
     print("PDF Successfully Generated!")
 
