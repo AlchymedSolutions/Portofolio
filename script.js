@@ -702,12 +702,11 @@ document.addEventListener('DOMContentLoaded', () => {
    *  17. DOWNLOAD CV
    * ========================================================== */
   const initDownloadCV = () => {
-    const btn = document.querySelector('.download-cv, #download-cv, [data-download-cv]');
+    const btn = document.getElementById('downloadCV');
     if (!btn) return;
 
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      alert('CV download will be available soon. Please contact me directly for my resume.');
+    btn.addEventListener('click', () => {
+      console.log('CV download triggered.');
     });
   };
 
